@@ -1,0 +1,15 @@
+RewriteEngine On
+
+RewriteRule ^profile/([0-9]+)$   index.php?page=UsersController&method=show&id=$1 [L]
+RewriteRule ^logout$   logout.php [L]
+RewriteRule ^login$   index.php?page=NoPHPController&method=login [L]
+RewriteRule ^connect$   login.php [L]
+
+RewriteRule ^users$   index.php?page=UsersController&method=index [L]
+
+RewriteRule ^$   index.php?page=StatusesController&method=index [L]
+RewriteRule ^home$   index.php?page=StatusesController&method=index [L]
+
+RewriteRule ^signup$   index.php?page=NoPHPController&method=signup [L]
+
+RewriteRule ^search$   index.php?page=UsersController&method=search [L]
