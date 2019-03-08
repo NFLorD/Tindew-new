@@ -1,0 +1,41 @@
+<main>
+    <div class="row mt-5">
+        <div class="col-1"></div>
+        <div class="col-10 text-center">
+            <img class="mb-3 border border-secondary" src="<?php if (!empty($user['avatar'])) : echo $user['avatar'];
+                                                            else : echo "https://via.placeholder.com/130";
+                                                            endif ?>" alt="His/her picture">
+            <h2><?= $user['firstName'] . " " . $user['lastName'] ?></h2>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-1"></div>
+        <div class="col-2 border border-primary mb-3">Things</div>
+        <div class="col-8">
+            <div class="row">
+                <?php foreach ($statuses as $status) : ?>
+                    <div class="m-5 border border-primary" style="padding: 15px">
+                        <strong>&nbsp;<?= $status['createdAt'] ?></strong> - Said : <br>
+                        <p class="mt-2"><?= $status['content'] ?></p>
+                        <ul class="list-group list-group-flush">
+                            <?php foreach ($status['comments'] as $comment) : ?>
+                                <li class="list-group-item">
+                                    <?= "<img class='rounded-circle float-left mr-3' style='height: 45px' src='" . $comment['user_id']['avatar'] . "' alt='Her/his picture'>" ?>
+                                    <?= "<em><a href='profile.php?id=" . $comment['user_id']['id'] . "'>" . $comment['user_id']['firstName'] . " " . $comment['user_id']['lastName'] . "</a></em>" ?>
+                                    <?= "<p>" . $comment['content'] . "</p>" ?>
+                                    <?= "<small style='display: block; text-align: right; width: 100%'>" . $comment['createdAt'] . "</small>" ?>
+                                </li>                                   
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                <?php endforeach ?>
+            </div>
+        </div>
+    </div>
+</main>
+<style>
+    img.border {
+        border-width: 3px !important;
+    }
+</style>

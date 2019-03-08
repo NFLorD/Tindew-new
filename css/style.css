@@ -1,0 +1,32 @@
+div#cache {
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  top: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+div#comments {
+  margin: 30vh auto;
+  width: 40vw;
+  background: white;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  right: 30vw;
+  display: none;
+  padding: 15px;
+  border-width: 2px;
+  border-radius: 4px;
+}
+
+#cache.show,
+#comments.show {
+  display: block;
+}
+
+#comments hr {
+  clear: both;
+  margin-top: 45px;
+}

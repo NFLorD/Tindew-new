@@ -1,0 +1,36 @@
+<?php $scripts[] .= "js/index_comments.js"; ?>
+<main>
+    <div class="container mt-4">
+        <?php if ($_SESSION['connected']) : ?>
+            <div class="row mt-4">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Express yourself !</span>
+                    </div>
+                    <textarea class="form-control" aria-label=""></textarea>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">Send</button>
+                    </div>
+                </div>
+            </div>
+        <?php endif ?>
+
+        <div class="row mt-4">
+            <?php foreach ($statuses as $index => $status) : ?>
+                    <div class="col-2 mt-5"></div>
+
+                    <div class="col-8 mt-5">
+                        <img class="float-left rounded-circle mr-3" src="<?= $status['user_id']['avatar'] ?>" alt="His/her picture">
+                        <em><?= $status['createdAt'] ?></em> - <strong><a href="profile.php?id=<?= $status['user_id']['id'] ?>"><?= $status['user_id']['firstName'] . " " . $status['user_id']['lastName'] ?></a></strong>
+                        <p><?= $status['content'] ?></p>
+                        <a data-id="<?= $status['id'] ?>" href="#/"><?= $status['comments'] ?> reactions</a>
+                    </div>
+
+                    <div class="col-2 mt-5"></div>
+            <?php endforeach ?>
+        </div>
+    </div>
+    <div id="comments" class="border border-secondary">
+
+    </div>
+</main>
