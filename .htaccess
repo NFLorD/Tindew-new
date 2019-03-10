@@ -11,5 +11,6 @@ RewriteRule ^$   index.php?page=StatusesController&method=index [L]
 RewriteRule ^home$   index.php?page=StatusesController&method=index [L]
 
 RewriteRule ^signup$   index.php?page=NoPHPController&method=signup [L]
+RewriteRule ^signupConf$   index.php?page=UsersController&method=create [L]
 
 RewriteRule ^search$   index.php?page=UsersController&method=search [L]
