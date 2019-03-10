@@ -10,6 +10,7 @@
     <title><?= $title ?></title>
 </head>
     <body>
+        <input type="hidden" id="connected" value="<?= $_SESSION['connected'] ?>">
         <div id="cache" class="position-fixed m-0 p-0"></div>  
         <?php require "partials/header.phtml" ?>
         <?php require "pages/" . $template . ".phtml" ?>

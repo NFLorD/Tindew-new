@@ -11,7 +11,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-1"></div>
-        <div class="col-2 border border-primary mb-3">Things</div>
+        <div class="col-2 border border-primary mb-3"><?= $user['description'] ?></div>
         <div class="col-8">
             <div class="row">
                 <?php foreach ($statuses as $status) : ?>
@@ -22,7 +22,7 @@
                             <?php foreach ($status['comments'] as $comment) : ?>
                                 <li class="list-group-item">
                                     <?= "<img class='rounded-circle float-left mr-3' style='height: 45px' src='" . $comment['user_id']['avatar'] . "' alt='Her/his picture'>" ?>
-                                    <?= "<em><a href='profile.php?id=" . $comment['user_id']['id'] . "'>" . $comment['user_id']['firstName'] . " " . $comment['user_id']['lastName'] . "</a></em>" ?>
+                                    <?= "<em><a href='" . $comment['user_id']['id'] . "'>" . $comment['user_id']['firstName'] . " " . $comment['user_id']['lastName'] . "</a></em>" ?>
                                     <?= "<p>" . $comment['content'] . "</p>" ?>
                                     <?= "<small style='display: block; text-align: right; width: 100%'>" . $comment['createdAt'] . "</small>" ?>
                                 </li>                                   

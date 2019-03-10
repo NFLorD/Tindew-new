@@ -17,8 +17,7 @@ class UsersController extends Controller
     public function show()
     {
         if (empty($_GET['id'])) {
-            header("Location: index.php");
-            exit;
+            Http::redirect("home");
         }
 
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
@@ -54,15 +53,14 @@ class UsersController extends Controller
             Http::redirectBack();
         }
 
-        $table = new Users();
-        $created = $table->create(['firstName' => $_POST['firstName'], 'lastName' => $_POST['lastName'], 'email' => $_POST['email'], 'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)]);
+        $created = $this->model->create(['firstName' => $_POST['firstName'], 'lastName' => $_POST['lastName'], 'email' => $_POST['email'], 'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)]);
 
         if ($created == 0) {
             Session::addError("Something went wrong...");
             Http::redirectBack();
         }
 
-        Http::redirect("index.php");
+        Http::redirect("home");
     }
 
     public function update()
@@ -73,6 +71,19 @@ class UsersController extends Controller
     public function delete()
     {
 
+    }
+
+    public function search(){
+        if (empty($_POST['searchValue'])) {
+            Http::redirect("index.php");
+        }
+
+        $seek = filter_input(INPUT_POST, "searchValue", FILTER_SANITIZE_SPECIAL_CHARS);
+        $found = $this->model->findLike($seek, ['firstName', 'lastName']);
+
+        $title = "Résultats";
+        $template = "search";
+        require "templates/template.phtml";
     }
 }
 

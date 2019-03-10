@@ -7,14 +7,14 @@ div#cache {
   background: rgba(0, 0, 0, 0.2);
 }
 
-div#comments {
+div#commentsCapsule {
   margin: 30vh auto;
   width: 40vw;
   background: white;
   z-index: 1000;
   position: absolute;
-  top: 0;
   right: 30vw;
+  top: 0;
   display: none;
   padding: 15px;
   border-width: 2px;
@@ -22,11 +22,11 @@ div#comments {
 }
 
 #cache.show,
-#comments.show {
+div#commentsCapsule.show {
   display: block;
 }
 
-#comments hr {
+div#commentsCapsule hr {
   clear: both;
   margin-top: 45px;
 }

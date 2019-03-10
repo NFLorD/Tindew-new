@@ -1,8 +1,8 @@
 <?php 
 
-require_once "_TableModel.php";
+require_once "_TablesModel.php";
 
-class Users extends TableModel
+class Users extends Tables
 {
     protected $table = "users";
 }

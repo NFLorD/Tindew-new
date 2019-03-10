@@ -1,6 +1,6 @@
 <?php 
-require "libraries/models/Comments.php";
-require "libraries/models/Users.php";
+require "libraries/models/CommentsModel.php";
+require "libraries/models/UsersModel.php";
 
 $statusid = filter_input(INPUT_GET, 'statusid', FILTER_VALIDATE_INT);
 if (!is_int($statusid)) {

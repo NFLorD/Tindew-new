@@ -2,23 +2,18 @@
 
 class NoPHPController
 {
-    private function display()
-    {
-        require "templates/template.phtml";
-    }
-
     public function login()
     {
         $title = "Connexion";
-        $template = "login-form";
-        $this->display();
+        $template = "login";
+        require "templates/template.phtml";
     }
 
     public function signup()
     {
         $title = "Sign up to Tindew !";
-        $template = "signup-form";
-        $this->display();
+        $template = "signup";
+        require "templates/template.phtml";
     }
 }
 

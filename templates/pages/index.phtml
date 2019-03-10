@@ -3,7 +3,8 @@
     <div class="container mt-4">
         <?php if ($_SESSION['connected']) : ?>
             <div class="row mt-4">
-                <div class="input-group">
+                <div class="col-1"></div>
+                <div class="col-10 input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Express yourself !</span>
                     </div>
@@ -21,7 +22,7 @@
 
                     <div class="col-8 mt-5">
                         <img class="float-left rounded-circle mr-3" src="<?= $status['user_id']['avatar'] ?>" alt="His/her picture">
-                        <em><?= $status['createdAt'] ?></em> - <strong><a href="profile.php?id=<?= $status['user_id']['id'] ?>"><?= $status['user_id']['firstName'] . " " . $status['user_id']['lastName'] ?></a></strong>
+                        <em><?= $status['createdAt'] ?></em> - <strong><a href="profile/<?= $status['user_id']['id'] ?>"><?= $status['user_id']['firstName'] . " " . $status['user_id']['lastName'] ?></a></strong>
                         <p><?= $status['content'] ?></p>
                         <a data-id="<?= $status['id'] ?>" href="#/"><?= $status['comments'] ?> reactions</a>
                     </div>
@@ -30,7 +31,17 @@
             <?php endforeach ?>
         </div>
     </div>
-    <div id="comments" class="border border-secondary">
+    <div id="commentsCapsule" class="border border-secondary">
+        <div id="comments"></div>
 
+        <?php if($_SESSION['connected']): ?>
+        <br><br>
+        <div class="input-group">
+            <textarea class="form-control" aria-label=""></textarea>
+            <div class="input-group-append">
+                <button id="commentBtn" class="btn btn-outline-primary">Send</button>
+            </div>
+        </div>
+        <?php endif ?>
     </div>
 </main>

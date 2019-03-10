@@ -3,7 +3,7 @@
         <div class="row mt-3">
         <?php foreach ($found as $index => $entry) : ?>
                 <div class="col-5 m-2 border border-secondary text-center" style="border-radius: 90px; padding: 0; margin: 0">
-                    <a href="profile.php?id=<?= $entry['id'] ?>">
+                    <a href="profile/<?= $entry['id'] ?>">
                         <img class="float-left rounded-circle m-1" src="<?= $entry['avatar'] ?>" alt="His/her picture">
                         <h3 class="text-primary"><?= $entry['firstName'] . " " . $entry['lastName'] ?></h3>   
                     </a>

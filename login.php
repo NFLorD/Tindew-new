@@ -1,7 +1,8 @@
 <?php 
-require "CRUD/Users.php";
+require "libraries/models/UsersModel.php";
 require "HTTP/Http.php";
 require "SESSIONS/Session.php";
+session_start();
 
 if (empty($_POST['email']) || empty($_POST['password'])) {
     Session::addError("You need to fill in all the fields !");
@@ -17,6 +18,6 @@ if ($logged) {
     Session::connect($user);
 }
 
-Http::redirect("index.php");
+Http::redirect("home");
 
 ?>

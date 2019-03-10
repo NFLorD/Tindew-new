@@ -1,8 +1,8 @@
 <?php 
 
-require_once "_TableModel.php";
+require_once "_TablesModel.php";
 
-class Statuses extends TableModel
+class Statuses extends Tables
 {
     protected $table = "status";
 }
